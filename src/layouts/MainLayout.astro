@@ -1,0 +1,44 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import "../styles/global.css";
+
+interface Props {
+    title: string;
+    description?: string;
+    currentPath?: string;
+}
+
+const {
+    title,
+    description = "1976 London is a freelance web development and creative technology studio run by Stuart Hunt.",
+    currentPath = Astro.url.pathname,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <title>{title}</title>
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+        <div class="site-backdrop" aria-hidden="true"></div>
+        <SiteHeader currentPath={currentPath} />
+        <main id="main-content" class="shell site-main">
+            <slot />
+        </main>
+        <SiteFooter />
+    </body>
+</html>

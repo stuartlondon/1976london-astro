@@ -1,0 +1,102 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+
+const services = [
+    {
+        title: "Astro Websites",
+        summary:
+            "Fast, modern websites built with component architecture and long-term flexibility.",
+        outcomes: [
+            "Lean code and strong load performance",
+            "Clear structure ready for future content",
+            "Accessible frontend patterns from the start",
+        ],
+        collaboration:
+            "We shape pages together around your goals, content, and audience behaviour.",
+    },
+    {
+        title: "WordPress Websites",
+        summary:
+            "Custom WordPress builds for clients who need editing freedom and robust CMS workflows.",
+        outcomes: [
+            "Flexible content management",
+            "Theme architecture tailored to your team",
+            "Fewer plugin dependencies and cleaner upkeep",
+        ],
+        collaboration:
+            "You stay involved through decisions on structure, editing experience, and launch priorities.",
+    },
+    {
+        title: "Portfolio Websites",
+        summary:
+            "Presentation-first websites for artists, photographers, filmmakers, and musicians.",
+        outcomes: [
+            "Project pages that support your narrative",
+            "Visual hierarchy that keeps work central",
+            "Clear enquiry routes for commissions",
+        ],
+        collaboration:
+            "We focus on your voice, your audience, and the type of work you want to attract next.",
+    },
+    {
+        title: "Small Business Websites",
+        summary:
+            "Practical websites that communicate services clearly and help local customers take action.",
+        outcomes: [
+            "Stronger trust messaging",
+            "Service page architecture for SEO",
+            "Contact journeys tuned for real enquiries",
+        ],
+        collaboration:
+            "Your local knowledge informs the structure, copy tone, and conversion priorities.",
+    },
+    {
+        title: "Website Maintenance",
+        summary:
+            "Reliable ongoing support for improvements, technical health, and content updates.",
+        outcomes: [
+            "Routine updates and proactive fixes",
+            "Performance and accessibility improvements",
+            "A dependable technical partner between launches",
+        ],
+        collaboration:
+            "Support is shaped around your pace, priorities, and communication style.",
+    },
+];
+---
+
+<MainLayout
+    title="Services | 1976 London"
+    description="Astro, WordPress, portfolio, and small business website services from 1976 London."
+    currentPath="/services"
+>
+    <section class="hero">
+        <span class="eyebrow">Services</span>
+        <h1>Development services designed for outcomes, not templates.</h1>
+        <p>
+            Every project starts with conversation and context. Together we
+            shape the right scope, then build a website that serves your work
+            and your audience.
+        </p>
+    </section>
+
+    <section>
+        <div class="services-grid">
+            {services.map((service) => <ServiceCard {...service} />)}
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Unsure which service fits your project?</h2>
+        <p>
+            We can start with a quick conversation and define the right route
+            together.
+        </p>
+        <div class="button-row">
+            <a class="button button-primary" href="/contact"
+                >Talk Through Your Idea</a
+            >
+        </div>
+    </section>
+</MainLayout>

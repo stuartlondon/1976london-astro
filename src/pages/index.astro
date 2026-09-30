@@ -1,17 +1,87 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
 
+const featuredProjects = projects.slice(0, 3);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout
+	title="1976 London | Freelance Web Development Studio"
+	description="1976 London is a freelance web development and creative technology studio run by Stuart Hunt in London."
+	currentPath="/"
+>
+	<section class="hero">
+		<span class="eyebrow">Freelance Web Development Studio</span>
+		<h1>
+			Modern websites that showcase your work and bring in better
+			enquiries.
+		</h1>
+		<p>
+			1976 London is a freelance web development and creative technology
+			studio run by Stuart Hunt in London.
+		</p>
+		<p>
+			I enjoy working with artists, photographers, filmmakers, musicians,
+			charities and local businesses. Every project begins with
+			understanding the people behind the project.
+		</p>
+		<div class="button-row">
+			<a class="button button-primary" href="/work">View Work</a>
+			<a class="button button-secondary" href="/contact"
+				>Start a Project</a
+			>
+		</div>
+	</section>
+
+	<section class="split" aria-label="Studio introduction">
+		<article class="panel">
+			<h2>Personal, practical, and collaborative.</h2>
+			<p>
+				I build lean, high-performing websites using modern Astro
+				patterns, reusable components, and accessible frontend
+				practices.
+			</p>
+		</article>
+		<article class="panel">
+			<h2>Made to grow with your business.</h2>
+			<p>
+				Each site is structured so new pages, projects, and content can
+				be added quickly without rebuilding from scratch.
+			</p>
+		</article>
+	</section>
+
+	<section>
+		<div class="section-head">
+			<span class="eyebrow">Featured Projects</span>
+			<h2>Selected client work from 1976 London.</h2>
+			<p>
+				Real websites, real outcomes, and a process that keeps
+				communication clear.
+			</p>
+		</div>
+		<div class="projects-grid">
+			{
+				featuredProjects.map((project) => (
+					<ProjectCard project={project} />
+				))
+			}
+		</div>
+	</section>
+
+	<section class="cta">
+		<h2>Need a portfolio, service website, or full rebuild?</h2>
+		<p>
+			Let us map the right approach together and build something that
+			feels true to your work.
+		</p>
+		<div class="button-row">
+			<a class="button button-primary" href="/services"
+				>Explore Services</a
+			>
+			<a class="button button-secondary" href="/contact">Contact Stuart</a
+			>
+		</div>
+	</section>
+</MainLayout>

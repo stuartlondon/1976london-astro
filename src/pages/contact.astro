@@ -1,0 +1,136 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const sent = Astro.url.searchParams.get("sent") === "1";
+---
+
+<MainLayout
+    title="Contact | 1976 London"
+    description="Get in touch with Stuart Hunt at 1976 London to discuss your website project."
+    currentPath="/contact"
+>
+    <section class="hero">
+        <span class="eyebrow">Contact</span>
+        <h1>Tell me about your project and I will reply within 24 hours.</h1>
+        <p>
+            Whether you need a new portfolio, a small business website, or a
+            complete rebuild, this is the fastest way to start the conversation.
+        </p>
+    </section>
+
+    <section class="contact-layout">
+        <div class="contact-panel">
+            <h2>Project Enquiry Form</h2>
+            {
+                sent && (
+                    <p class="form-alert" role="status">
+                        Thanks, your enquiry has been sent successfully. I will
+                        reply as soon as I can.
+                    </p>
+                )
+            }
+            <form
+                class="contact-form"
+                method="post"
+                action="https://formsubmit.co/stuart@1976.london"
+            >
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="New Project Enquiry from 1976 London"
+                />
+                <input type="hidden" name="_template" value="table" />
+                <input
+                    type="hidden"
+                    name="_next"
+                    value="https://1976.london/contact?sent=1"
+                />
+                <input
+                    type="text"
+                    name="_honey"
+                    class="visually-hidden"
+                    tabindex="-1"
+                    autocomplete="off"
+                />
+
+                <div class="form-two-up">
+                    <div>
+                        <label for="name">Name</label>
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            autocomplete="name"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <div class="form-two-up">
+                    <div>
+                        <label for="projectType">Project Type</label>
+                        <select id="projectType" name="projectType" required>
+                            <option value="">Select one</option>
+                            <option>Astro Website</option>
+                            <option>WordPress Website</option>
+                            <option>Portfolio Website</option>
+                            <option>Small Business Website</option>
+                            <option>Website Maintenance</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="timeline">Timeline</label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="">Select one</option>
+                            <option>As soon as possible</option>
+                            <option>Within 1 month</option>
+                            <option>Within 2-3 months</option>
+                            <option>Not sure yet</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="brief">Project Brief</label>
+                    <textarea
+                        id="brief"
+                        name="brief"
+                        required
+                        placeholder="What do you need your website to do, and who do you want it to reach?"
+                    ></textarea>
+                </div>
+
+                <button class="button button-primary" type="submit"
+                    >Send Project Brief</button
+                >
+                <p class="form-note">
+                    Your details are only used to respond to this enquiry.
+                </p>
+            </form>
+        </div>
+
+        <aside class="contact-panel">
+            <h2>Contact Details</h2>
+            <p>Stuart Hunt</p>
+            <p>London, United Kingdom</p>
+            <p>
+                <a href="mailto:stuart@1976.london">stuart@1976.london</a>
+            </p>
+            <br />
+            <h3>What happens next</h3>
+            <p>1. You send your brief.</p>
+            <p>2. I reply with recommendations and next steps.</p>
+            <p>3. We confirm scope and launch plan.</p>
+        </aside>
+    </section>
+</MainLayout>

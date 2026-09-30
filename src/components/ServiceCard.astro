@@ -1,0 +1,19 @@
+---
+interface Props {
+    title: string;
+    summary: string;
+    outcomes: string[];
+    collaboration: string;
+}
+
+const { title, summary, outcomes, collaboration } = Astro.props;
+---
+
+<article class="service-card">
+    <h3>{title}</h3>
+    <p>{summary}</p>
+    <ul>
+        {outcomes.map((outcome) => <li>{outcome}</li>)}
+    </ul>
+    <p class="service-collab">{collaboration}</p>
+</article>

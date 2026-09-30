@@ -1,0 +1,34 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
+---
+
+<MainLayout
+    title="Work | 1976 London"
+    description="Client websites and creative technology projects by Stuart Hunt at 1976 London."
+    currentPath="/work"
+>
+    <section class="hero">
+        <span class="eyebrow">Work</span>
+        <h1>Portfolio projects built for creative and local businesses.</h1>
+        <p>
+            Each build is tailored to goals, audience, and tone, with a focus on
+            performance, clarity, and maintainability.
+        </p>
+    </section>
+
+    <section>
+        <div class="section-head">
+            <h2>Real projects from 1976 London</h2>
+            <p>
+                From artist portfolios to local business websites, these
+                projects reflect practical collaboration and detail-oriented
+                development.
+            </p>
+        </div>
+        <div class="projects-grid">
+            {projects.map((project) => <ProjectCard project={project} />)}
+        </div>
+    </section>
+</MainLayout>

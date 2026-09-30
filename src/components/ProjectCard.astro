@@ -1,0 +1,66 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+    project: Project;
+}
+
+const { project } = Astro.props;
+const initials = project.name
+    .split(" ")
+    .map((word: string) => word[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
+const hasImage = Boolean(project.image);
+---
+
+<article class="project-card">
+    <div
+        class={`project-shot ${project.tone} ${hasImage ? "has-image" : ""}`}
+        role="img"
+        aria-label={`${project.name} project screenshot`}
+    >
+        {
+            hasImage ? (
+                <img
+                    src={project.image}
+                    alt={`Homepage screenshot for ${project.name}`}
+                    loading="lazy"
+                    decoding="async"
+                />
+            ) : (
+                <span>{initials}</span>
+            )
+        }
+    </div>
+
+    <div class="project-copy">
+        <div class="project-heading">
+            <h3>{project.name}</h3>
+            <span
+                class={`status-badge ${project.status === "In Development" ? "status-dev" : "status-live"}`}
+            >
+                {project.status}
+            </span>
+        </div>
+
+        <p class="project-category">{project.category}</p>
+        <p>{project.description}</p>
+
+        <ul class="chip-list" aria-label={`${project.name} technologies`}>
+            {project.technologies.map((technology) => <li>{technology}</li>)}
+        </ul>
+
+        {
+            project.website && (
+                <p>
+                    <a href={project.website} target="_blank" rel="noreferrer">
+                        Visit website
+                    </a>
+                </p>
+            )
+        }
+    </div>
+</article>
