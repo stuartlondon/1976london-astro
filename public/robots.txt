@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://1976.london/sitemap-index.xml

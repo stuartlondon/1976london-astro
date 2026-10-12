@@ -17,6 +17,38 @@ const hasImage = Boolean(project.image);
 ---
 
 <article class="project-card">
+    <div class="project-copy">
+        <div class="project-heading">
+            <h3>{project.name}</h3>
+            <span
+                class={`status-badge ${project.status === "In Development" ? "status-dev" : "status-live"}`}
+            >
+                {project.status}
+            </span>
+        </div>
+
+        <p class="project-category">{project.category}</p>
+        <p>{project.description}</p>
+
+        {
+            project.technologies.length > 0 && (
+                <ul class="chip-list" aria-label={`${project.name} technologies`}>
+                    {project.technologies.map((technology) => <li>{technology}</li>)}
+                </ul>
+            )
+        }
+
+        {
+            project.website && (
+                <p>
+                    <a href={project.website} target="_blank" rel="noreferrer">
+                        Visit website
+                    </a>
+                </p>
+            )
+        }
+    </div>
+
     <div
         class={`project-shot ${project.tone} ${hasImage ? "has-image" : ""}`}
         role="img"
@@ -32,34 +64,6 @@ const hasImage = Boolean(project.image);
                 />
             ) : (
                 <span>{initials}</span>
-            )
-        }
-    </div>
-
-    <div class="project-copy">
-        <div class="project-heading">
-            <h3>{project.name}</h3>
-            <span
-                class={`status-badge ${project.status === "In Development" ? "status-dev" : "status-live"}`}
-            >
-                {project.status}
-            </span>
-        </div>
-
-        <p class="project-category">{project.category}</p>
-        <p>{project.description}</p>
-
-        <ul class="chip-list" aria-label={`${project.name} technologies`}>
-            {project.technologies.map((technology) => <li>{technology}</li>)}
-        </ul>
-
-        {
-            project.website && (
-                <p>
-                    <a href={project.website} target="_blank" rel="noreferrer">
-                        Visit website
-                    </a>
-                </p>
             )
         }
     </div>

@@ -6,6 +6,7 @@ export interface Project {
     description: string;
     technologies: string[];
     status: ProjectStatus;
+    featured: boolean;
     website?: string;
     image?: string;
     tone: "cyan" | "teal" | "slate";
@@ -13,12 +14,25 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        name: "Fix My Car",
+        category: "Mobile Mechanic Website",
+        description:
+            "A mobile mechanic website for drivers across North, East and South London, with clear service information, coverage details, and direct contact options.",
+        technologies: ["Astro"],
+        status: "Live",
+        featured: true,
+        website: "https://fixmycar.london",
+        image: "/fixmycar.png",
+        tone: "cyan"
+    },
+    {
         name: "Dragica Carlin",
         category: "Artist Portfolio",
         description:
             "A personal art portfolio focused on exhibitions, commissions, and visual storytelling.",
-        technologies: ["Astro", "TypeScript", "Content Collections"],
+        technologies: ["WordPress"],
         status: "Live",
+        featured: true,
         website: "https://dragicacarlin.com",
         image: "/dragicacarlin.png",
         tone: "cyan"
@@ -28,8 +42,9 @@ export const projects: Project[] = [
         category: "Filmmaker Portfolio",
         description:
             "A cinematic portfolio experience designed to highlight motion work and client projects.",
-        technologies: ["Astro", "Responsive Video", "Performance Tuning"],
+        technologies: ["WordPress"],
         status: "Live",
+        featured: true,
         website: "https://benstockley.com",
         image: "/benstockley.png",
         tone: "teal"
@@ -39,31 +54,11 @@ export const projects: Project[] = [
         category: "Small Business Website",
         description:
             "A practical lead-focused site for a local trades business with clearer contact pathways.",
-        technologies: ["Astro", "SEO Foundations", "Conversion Copy"],
+        technologies: ["WordPress"],
         status: "Live",
+        featured: true,
         website: "https://redsplastering.co.uk",
         image: "/redsplastering.png",
         tone: "slate"
     },
-    {
-        name: "David Austen",
-        category: "Creative Studio Website",
-        description:
-            "A studio website balancing artwork presentation, exhibitions, and editorial clarity.",
-        technologies: ["Astro", "Image Optimisation", "Custom UI"],
-        status: "Live",
-        website: "https://www.davidaustenstudio.com/",
-        image: "/davidaustenstudio.png",
-        tone: "teal"
-    },
-    {
-        name: "ABCars",
-        category: "Local Service Website",
-        description:
-            "A modern rebuild in progress focused on trust signals, service pages, and local enquiries.",
-        technologies: ["Astro", "Component Architecture", "Local SEO"],
-        status: "In Development",
-        image: "/fixmycar.png",
-        tone: "cyan"
-    }
 ];

@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { projects } from "../data/projects";
 
-const featuredProjects = projects.slice(0, 3);
+const featuredProjects = projects.filter((project) => project.featured);
 ---
 
 <MainLayout
