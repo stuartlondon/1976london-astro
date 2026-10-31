@@ -118,6 +118,18 @@ On first use, FormSubmit requires one activation confirmation email.
 3. Upload to `public_html` via cPanel File Manager
 4. Ensure `.htaccess` settings (if used) do not interfere with static files
 
+## Launch Checklist
+
+1. Confirm project links and contact email are correct on Home, Work, Services, and Contact pages.
+2. Run `npm run build` and verify no errors.
+3. Open `dist/` locally and spot-check page navigation and project images.
+4. Zip the contents of `dist/` (select all files inside `dist`, then compress).
+5. Upload the zip to `public_html` in cPanel and extract there.
+6. Remove old website files from `public_html` if needed to avoid conflicts.
+7. Visit the live domain and hard refresh to clear browser cache.
+8. Submit a test enquiry from `/contact` and confirm email delivery to `stuart@1976.london`.
+9. Optional: delete the uploaded zip after extraction for a cleaner server folder.
+
 ## Future Enhancements
 
 - Add mobile-specific project screenshots

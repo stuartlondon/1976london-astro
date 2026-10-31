@@ -312,6 +312,7 @@ p {
 	background: var(--surface-strong);
 	box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
 	display: grid;
+	grid-template-rows: minmax(0, 1fr) auto;
 }
 
 .project-shot {
@@ -375,6 +376,7 @@ p {
 .project-copy {
 	padding: 1rem;
 	display: grid;
+	align-content: start;
 	gap: 0.82rem;
 }
 
@@ -457,7 +459,7 @@ p {
 	color: #d7e9fb;
 }
 
-.service-card li + li {
+.service-card li+li {
 	margin-top: 0.42rem;
 }
 
@@ -592,6 +594,7 @@ select:focus-visible {
 		opacity: 0;
 		transform: translateY(-5px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
